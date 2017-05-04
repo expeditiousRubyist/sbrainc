@@ -55,7 +55,7 @@ input.each_char do |c|
     currlabel += 1
   when ']' then
     unless jumpstack.empty?
-      output << "  goto #{jumpstack[-1]};\n"
+      output << "  goto loopbegin#{jumpstack[-1]};\n"
       output << "loopend#{jumpstack.pop}:\n"
     end
   when '.' then output << "  putchar(cells[ptr]);\n"
